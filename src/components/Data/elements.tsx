@@ -1,6 +1,15 @@
-import styled from 'styled-components';
-import { border, BorderProps, color, ColorProps, flexbox, FlexboxProps, typography, TypographyProps } from 'styled-system';
-import { VictoryPie } from 'victory';
+import styled from 'styled-components'
+import {
+  border,
+  BorderProps,
+  color,
+  ColorProps,
+  flexbox,
+  FlexboxProps,
+  typography,
+  TypographyProps,
+} from 'styled-system'
+import { VictoryPie } from 'victory'
 
 export const Reports = styled.p<ColorProps & TypographyProps>`
   ${color}
@@ -45,12 +54,12 @@ export const ProjectDetails = styled.div`
   max-height: 300px;
   margin-bottom: 6px;
   margin-left: 20px;
-  
-  & >:nth-child(odd) {
+
+  & > :nth-child(odd) {
     background: white;
   }
-  
-  & >:nth-child(even) {
+
+  & > :nth-child(even) {
     background: transparent;
   }
 `
@@ -81,10 +90,10 @@ export const TwoColumns = styled.div`
   display: flex;
   width: 100%;
 
-  & >:nth-child(1) {
+  & > :nth-child(1) {
     width: 58%;
   }
-  & >:nth-child(2) {
+  & > :nth-child(2) {
     width: 42%;
   }
 `
@@ -96,22 +105,24 @@ export const SecondCol = styled.div`
 `
 
 export const Chart = ({ data }) => {
-  const values = Object.values(data).map(value => Object.values(value))
+  const values = Object.values(data).map((value) => Object.values(value))
   const total = values.reduce((acc, curr) => acc + curr[0], 0)
 
   return (
     <svg viewBox="0 0 400 400">
       <VictoryPie
         standalone={false}
-        width={400} height={400}
-        data={values.map(value => ({
+        width={400}
+        height={400}
+        data={values.map((value) => ({
           x: `${Math.round(((value as unknown as number) / total) * 100)}%`,
-          y: value
+          y: value,
         }))}
-        innerRadius={75} labelRadius={100}
-        style={{ labels: { fontSize: 20, fill: "white" } }}
+        innerRadius={75}
+        labelRadius={100}
+        style={{ labels: { fontSize: 20, fill: 'white' } }}
         colorScale={['#A259FF', '#F24E1E', '#FFC107', '#6497B1']}
-        labelPosition='centroid'
+        labelPosition="centroid"
         padAngle={() => 0.5}
       />
     </svg>

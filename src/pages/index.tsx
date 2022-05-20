@@ -19,7 +19,7 @@ const IndexPage: NextPage = () => {
       dispatch(getGateways())
     }
   }, [dispatch])
-  
+
   return (
     <>
       <Head>

@@ -11,7 +11,7 @@ import {
   setDisplayedGateway,
   setDisplayedProject,
   setSelectedGateway,
-  setSelectedProject
+  setSelectedProject,
 } from 'state/dataSlice'
 import styled from 'styled-components'
 import { space, SpaceProps } from 'styled-system'

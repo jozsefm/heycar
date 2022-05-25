@@ -32,7 +32,7 @@ const getReportsHandler: NextApiHandler = async (request, response) => {
           modified,
           gatewayId,
           projectId,
-          paymentId
+          paymentId,
         }: {
           amount: number
           modified: string
@@ -44,7 +44,7 @@ const getReportsHandler: NextApiHandler = async (request, response) => {
           date: modified,
           gatewayId,
           projectId,
-          transaction: paymentId
+          transaction: paymentId,
         }),
       ),
     })

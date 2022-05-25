@@ -119,7 +119,7 @@ export const selectReportSummariesByProject = (state: AppState) => {
       if (!acc[report.projectId][report.gatewayId]) {
         acc[report.projectId][report.gatewayId] = report.amount
       } else {
-        const amount = (acc[report.projectId])[report.gatewayId]
+        const amount = acc[report.projectId][report.gatewayId]
         acc[report.projectId][report.gatewayId] = amount + report.amount
       }
     }
@@ -134,7 +134,7 @@ export const selectReportSummariesByGateway = (state: AppState) => {
       if (!acc[report.gatewayId][report.projectId]) {
         acc[report.gatewayId][report.projectId] = report.amount
       } else {
-        const amount = (acc[report.gatewayId])[report.projectId]
+        const amount = acc[report.gatewayId][report.projectId]
         acc[report.gatewayId][report.projectId] = amount + report.amount
       }
     }

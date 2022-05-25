@@ -1,4 +1,4 @@
-import { RequestStatuses } from '../types/RequestStatus';
+import { RequestStatuses } from '../types/RequestStatus'
 
 export interface UsersResponse {
   users?: Array<{ name: string; initials: string }>

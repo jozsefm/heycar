@@ -172,7 +172,7 @@ export const selectReportsByGateway = (state: AppState) => {
   }, {})
 }
 export const selectReportsByProjectAndGateway = (state: AppState) => {
-  return state.data.reports.reduce((acc, report) => {
+  const allReports = state.data.reports.reduce((acc, report) => {
     if (!acc[report.projectId + report.gatewayId]) {
       acc[report.projectId + report.gatewayId] = [report]
     } else {
@@ -180,6 +180,14 @@ export const selectReportsByProjectAndGateway = (state: AppState) => {
     }
     return acc
   }, {})
+
+  Object.values(allReports).forEach(((reports: Report[]) => {
+    reports.sort((reportA, reportB) => {
+      return new Date(reportA.date.replace('/', '-')).getTime() -  new Date(reportB.date.replace('/', '-')).getTime()
+    })
+  }))
+
+  return allReports
 }
 export const selectGatewayNamesById = (state: AppState) => {
   return state.data.gateways.reduce((acc, gateway) => {
